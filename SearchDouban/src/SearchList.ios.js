@@ -1,37 +1,30 @@
 'use strict';
-var React = require('react-native');
-var {
-	Component,
-	StyleSheet,
-	View,
-	Text,
-	ListView
-} = React;
+var React = require('./React');
+var {Component, ListView, Text, StyleSheet, PropTypes} = React;
 
-var rows = [0,1,2,3];
+var SearchListItem = require('./SearchListItem');
 
 class SearchList extends Component {
-
 	
-
   	constructor(props) {
     	super(props);
     	this.state = {
     		dataSource: new ListView.DataSource({
     			rowHasChanged: (row1, row2) => row1 !== row2,
-    		}),
+    		})
     	};
   	}
 
   	// mount
   	componentWillMount(){
-  		this.fetchData();
   	}
   	componentDidMount(){}
 
   	// update
-  	componentWillReceiveProps(){}
-  	shouldComponentUpdate(){}
+  	componentWillReceiveProps(props){
+        
+    }
+  	//shouldComponentUpdate(){}
   	componentWillUpdate(){}
   	componentDidUpdate(){}
 
@@ -39,22 +32,16 @@ class SearchList extends Component {
   	componentWillUnmount(){}
 
 
-  	fetchData() {
-  		this.setState({
-  			dataSource: this.state.dataSource.cloneWithRows(rows)
-  		});
-  	}
-
-  	renderRow() {
+  	renderRow(rowData) {
   		return (
-  			<Text>aaa</Text>
+  			<SearchListItem book={rowData} />
   		);
   	}
 
   	render() {
 
   		return (
-  			<ListView dataSource={this.state.dataSource}
+  			<ListView dataSource={this.state.dataSource.cloneWithRows(this.props.dataSource)}
   				renderRow={this.renderRow} />
   		);
   	}
