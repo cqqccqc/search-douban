@@ -3,10 +3,7 @@ class Book  {
 				id, image, images, isbn10, isbn13, origin_title, pages,
 				price, pubdate, publisher, rating, subtitle, summary, tags
 				title, translator, url) {
-  		var args = Array.from(arguments);
-  		args.forEach(item => {
-  			this[item] = item;
-  		});
+  		
 	}
 }
 

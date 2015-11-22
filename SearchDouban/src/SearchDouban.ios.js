@@ -10,15 +10,16 @@ var {SEARCH_BOOK} = require('./const');
 var SearchList = require('./SearchList');
 var SearchInput = require('./SearchInput');
 
-var rows = [{title: 'aa'}, {title: 'bb'}, {title: 'cc'}];
-
 class SearchDouban extends Component {
   
     constructor(props) {
         super(props);
         this.state = {
-            searchListTab: true,
-            dataSource: rows
+            searchListTab: true, // tab item
+
+            pageIndex: 0, // default 0
+            //pageSize: 20, //default 20
+            dataSource: [], // list row data
         };
     }
 

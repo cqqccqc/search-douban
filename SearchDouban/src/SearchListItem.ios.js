@@ -15,6 +15,9 @@ class SearchListItem extends Component {
 		  			<Text style={styles.title}>
 		  				{this.props.book.title}
 		  			</Text>
+		  			<Text style={styles.author} >
+		  				{this.props.book.author.map(item => item)}
+		  			</Text>
 	  			</View>
   			</View>
   		);
@@ -25,7 +28,14 @@ var styles = StyleSheet.create({
 		flex: 1,
 		flexDirection: 'row',
 		justifyContent: 'center',
-		alignItems: 'center'
+		alignItems: 'center',
+		borderTopWidth: 1,
+		borderTopColor: 'grey',
+		borderBottomWidth: 1,
+		borderBottomColor: 'grey',
+		paddingBottom: 10,
+		paddingTop: 10,
+		marginBottom: 10
 	},
 	rightContainer: {
 		flex: 1
@@ -38,6 +48,9 @@ var styles = StyleSheet.create({
 	thumbnail: {
 		width: 100,
 		height: 148
+	},
+	author: {
+		textAlign: 'center'
 	}
 });
 module.exports = SearchListItem

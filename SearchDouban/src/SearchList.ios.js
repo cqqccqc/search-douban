@@ -4,15 +4,15 @@ var {Component, ListView, Text, StyleSheet, PropTypes} = React;
 
 var SearchListItem = require('./SearchListItem');
 
+var ds = new ListView.DataSource({
+                rowHasChanged: (row1, row2) => row1 !== row2,
+            });
+
 class SearchList extends Component {
 	
   	constructor(props) {
     	super(props);
-    	this.state = {
-    		dataSource: new ListView.DataSource({
-    			rowHasChanged: (row1, row2) => row1 !== row2,
-    		})
-    	};
+    	
   	}
 
   	// mount
@@ -41,10 +41,13 @@ class SearchList extends Component {
   	render() {
 
   		return (
-  			<ListView dataSource={this.state.dataSource.cloneWithRows(this.props.dataSource)}
+  			<ListView dataSource={ds.cloneWithRows(this.props.dataSource)}
   				renderRow={this.renderRow} />
   		);
   	}
 };
+var styles = StyleSheet.create({
+    
+});
 
 module.exports = SearchList;
