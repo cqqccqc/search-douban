@@ -29,6 +29,7 @@ var styles = StyleSheet.create({
 		flexDirection: 'row',
 		justifyContent: 'center',
 		alignItems: 'center',
+		width:
 		borderTopWidth: 1,
 		borderTopColor: 'grey',
 		borderBottomWidth: 1,
